@@ -2,7 +2,7 @@
 
 **Ausgabe**: Montag 09. Dezember 2024, vormittags
 
-**Abgabe bis**: Dienstag, 07. Jänner 2024, Ende des Tages
+**Abgabe bis**: Dienstag, 07. Jänner 2025, Ende des Tages
 
 **Abgabe via**: git-Repository mit dem Namen **`homework9`** auf unserem git-Server https://sgit.iue.tuwien.ac.at
 
