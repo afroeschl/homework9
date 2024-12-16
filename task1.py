@@ -3,6 +3,9 @@ Task1: Implement the following functions according to the
 specification provided in the comments below.
 """
 
+import cmath
+import math
+
 def device_impedance(dev_type: str, dev_val: float, freq: float) -> complex:
     """ Calculates the impedance (complex number) of a device at a given frequency.
 
@@ -22,6 +25,14 @@ def device_impedance(dev_type: str, dev_val: float, freq: float) -> complex:
     -------
     Impedance of the device as a complex number
     """
+    if dev_type == 'R':
+        return complex(dev_val, 0)
+    elif dev_type == 'C':
+        return complex(0, -1*(1/(2*math.pi * freq * dev_val)))
+    elif dev_type == 'L':
+        return complex(0, 2 * math.pi * freq * dev_val)
+    else:
+        raise ValueError()
     pass
 
 
@@ -39,6 +50,10 @@ def series_impedance(devices: list[tuple[str, float]], freq: float) -> complex:
     -------
         Total impedance as a complex number
     """
+    sum = complex(0, 0)
+    for d in devices:
+        sum += device_impedance(d[0], d[1], freq)
+    return sum
     pass
 
 
@@ -57,9 +72,14 @@ def parallel_impedance(devices: list[tuple[str, float]], freq: float) -> complex
     complex
         Total impedance as a complex number
     """
+    sum = complex(0,0)
+    for d in devices:
+        sum += 1 / device_impedance(d[0], d[1], freq)
+    return 1 / sum
     pass
 
 
 if __name__ == '__main__':
     """ You can call your functions here to perform your own tests. """
+    print(device_impedance('R', 10, 0))
     pass
