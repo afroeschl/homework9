@@ -39,7 +39,9 @@ class Device:
             nominal value of the device
         """
         self.dev_type = dev_type
+        self.type = dev_type
         self.dev_val = dev_val
+        self.value = dev_val
         pass
 
     def __str__(self) -> str:
@@ -132,6 +134,7 @@ class Circuit:
         """
         self.circ_type = circ_type
         self.devices = devices
+        self.type = circ_type
         pass
 
     def __str__(self) -> str:
